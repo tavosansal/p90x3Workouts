@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "p90x3Workouts",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "cordova": {}
+}

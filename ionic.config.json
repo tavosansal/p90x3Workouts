@@ -1,0 +1,7 @@
+{
+  "name": "p90x3Workouts",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
