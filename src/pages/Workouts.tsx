@@ -1,21 +1,9 @@
 import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonSearchbar, IonLabel } from '@ionic/react';
+import workoutList from '../data/workouts';
 import './Workouts.css';
 
 const Workouts: React.FC = () => {
-  const workoutList = [
-    {
-      id: 'cvx',
-      title: 'CVX',
-      description: 'Now resistance is combined with intervals to give you that full-body burn and power-up your core.',
-    },
-    {
-      id: 'totalSynergistics',  
-      title: 'Total Synergistics',
-      description: 'A full-body workout that triggers fast, powerful changes to your body\'s composition.' 
-    }
-  ];
-
   const [searchText, setSearchText] = useState('');
 
   const filteredWorkouts = workoutList.filter((workout) => {
@@ -30,13 +18,13 @@ const Workouts: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Workouts</IonTitle>
+          <IonTitle>All Workouts</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Workouts</IonTitle>
+            <IonTitle size="large">All Workouts</IonTitle>
           </IonToolbar>
         </IonHeader>
         
