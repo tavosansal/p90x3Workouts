@@ -29,7 +29,7 @@ const Workouts: React.FC = () => {
         </IonHeader>
         
 
-        <IonSearchbar value={searchText} onIonChange={e => setSearchText(e.detail.value!)}></IonSearchbar>
+        <IonSearchbar value={searchText} onIonChange={e => setSearchText(e.detail.value!)} animated inputMode="search"></IonSearchbar>
 
         <IonList>
           {filteredWorkouts.map((workout) => (
