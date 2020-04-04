@@ -1,3 +1,5 @@
+import sortBy from 'lodash/sortBy';
+
 const workoutList = [
   {
     id: 'cvx',
@@ -161,4 +163,6 @@ const workoutList = [
   }
 ];
 
-export default workoutList;
+const sortedList = sortBy(workoutList, 'title');
+
+export default sortedList;
