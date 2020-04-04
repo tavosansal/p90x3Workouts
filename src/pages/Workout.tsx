@@ -33,21 +33,25 @@ const Workout: React.FC<WorkoutPageProps> = ({match}) => {
         <IonItem lines="none">
           <IonIcon icon={timeSharp} slot="start"></IonIcon>
           <IonLabel>
-            35 mins
+            {currentWorkout?.duration}m
           </IonLabel>
         </IonItem>
 
-        <h4>
-          Required Equipment:
-        </h4>
-
-        <ul>
-          {currentWorkout?.equipment?.map((equipment, index) => (
-            <li key={index}>
-              {equipment}
-            </li>
-          ))}
-        </ul>
+        {currentWorkout?.equipment?.length && 
+          <h4>
+            Required Equipment:
+          </h4>
+        }
+        
+        {currentWorkout?.equipment?.length && 
+          <ul>
+            {currentWorkout?.equipment?.map((equipment, index) => (
+              <li key={index}>
+                {equipment}
+              </li>
+            ))}
+          </ul>
+        }
 
         {currentWorkout?.recommendedEquipment?.length && 
           <h4>
