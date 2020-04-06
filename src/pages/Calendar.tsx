@@ -1,6 +1,5 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSegment, IonSegmentButton } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
 import './Calendar.css';
 
 const Calendar: React.FC = () => {
@@ -22,10 +21,10 @@ const Calendar: React.FC = () => {
         <IonSegment value="classic">
           <IonSegmentButton value="classic">
             Classic
-              </IonSegmentButton>
+          </IonSegmentButton>
           <IonSegmentButton value="favorites">
             Favorites
-              </IonSegmentButton>
+          </IonSegmentButton>
         </IonSegment>
       </IonContent>
     </IonPage>
