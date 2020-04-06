@@ -9,7 +9,7 @@ const Workouts: React.FC = () => {
   const filteredWorkouts = workoutList.filter((workout) => {
     if (searchText) {
 
-      return workout.id.toLowerCase().includes(searchText.toLowerCase());
+      return workout.title.toLowerCase().includes(searchText.toLowerCase());
     }
     return workout;
   });
