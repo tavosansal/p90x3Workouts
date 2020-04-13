@@ -10,7 +10,7 @@ import {
   IonTabs
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { square, barbellSharp, calendarSharp } from 'ionicons/icons';
+import { barbellSharp, calendarSharp, informationCircleSharp } from 'ionicons/icons';
 import Workouts from './pages/Workouts';
 import Tab2 from './pages/Calendar';
 import Tab3 from './pages/Tab3';
@@ -56,8 +56,8 @@ const App: React.FC = () => (
             <IonLabel>Calendar</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={square} />
-            <IonLabel>Tab 3</IonLabel>
+            <IonIcon icon={informationCircleSharp} />
+            <IonLabel>About</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
