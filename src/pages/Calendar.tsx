@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonListHeader, IonLabel, IonList, IonItem, IonCheckbox } from '@ionic/react';
 import workoutList from '../data/workouts';
 import './Calendar.css';
-
-
+import CalendarEmpty from '../components/CalendarEmpty';
 
 function createCalendar() {
   let dayCounter = 1;
@@ -21,37 +20,37 @@ function createCalendar() {
   return allDays;
 }
 
-function CalendarBody(props: { allDays: any[]; }) {
-  const [calendar, setCalendar] = useState(localStorage.getItem('calendar'));
-
-  if (!calendar) {
+function CalendarBody(props: { calendar: object; }) {
+  if (!props.calendar) {
     return (
-      <h3>NO CALENDAR</h3>
+      <CalendarEmpty/>
     )
   }
   return (
-    <IonList>
-      {props.allDays.map((scheduleItem) => (
-        <div key={scheduleItem.day}>
-          <IonListHeader>
-            <IonLabel>Day {scheduleItem.day}</IonLabel>
-          </IonListHeader>
-          <IonItem key={scheduleItem.day}>
-            <IonLabel>
-              {scheduleItem.workout?.title}
-            </IonLabel>
-            <IonCheckbox slot="end" color="primary" />
-          </IonItem>
-        </div>
-      ))}
-    </IonList>
+    <div></div>
+    // <IonList>
+    //   {props.allDays.map((scheduleItem) => (
+    //     <div key={scheduleItem.day}>
+    //       <IonListHeader>
+    //         <IonLabel>Day {scheduleItem.day}</IonLabel>
+    //       </IonListHeader>
+    //       <IonItem key={scheduleItem.day}>
+    //         <IonLabel>
+    //           {scheduleItem.workout?.title}
+    //         </IonLabel>
+    //         <IonCheckbox slot="end" color="primary" />
+    //       </IonItem>
+    //     </div>
+    //   ))}
+    // </IonList>
   )
 }
 
-
-
 const Calendar: React.FC = () => {
   const allDays = createCalendar();
+  const [calendar, setCalendar] = useState(localStorage.getItem('calendar'));
+
+  const parsedCalendar = JSON.parse(calendar!);
 
   return (
     <IonPage>
@@ -67,7 +66,8 @@ const Calendar: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         
-        <CalendarBody allDays={allDays}/>
+        <CalendarBody calendar={parsedCalendar}/>
+        
 
       </IonContent>
     </IonPage>
