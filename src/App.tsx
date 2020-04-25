@@ -7,12 +7,12 @@ import {
   IonRouterOutlet,
   IonTabBar,
   IonTabButton,
-  IonTabs
+  IonTabs,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { barbellSharp, calendarSharp, informationCircleSharp } from 'ionicons/icons';
 import Workouts from './pages/Workouts';
-import Tab2 from './pages/Calendar';
+import Calendar from './pages/Calendar';
 import Tab3 from './pages/Tab3';
 
 /* Core CSS required for Ionic components to work properly */
@@ -41,7 +41,7 @@ const App: React.FC = () => (
       <IonTabs>
         <IonRouterOutlet>
           <Route path="/workouts" component={Workouts} exact={true} />
-          <Route path="/calendar" component={Tab2} exact={true} />
+          <Route path="/calendar" component={Calendar} exact={true} />
           <Route path="/tab3" component={Tab3} />
           <Route path="/workout/:id" component={Workout} />
           <Route path="/" render={() => <Redirect to="/workouts" />} exact={true} />

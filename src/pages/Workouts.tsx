@@ -1,9 +1,19 @@
 import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonSearchbar, IonLabel } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonSearchbar, IonLabel, useIonViewWillEnter } from '@ionic/react';
 import workoutList from '../data/workouts';
 import './Workouts.css';
+import { Plugins } from '@capacitor/core';
+
+function hideSplashScreen() {
+  const { SplashScreen } = Plugins;
+  SplashScreen.hide();
+}
 
 const Workouts: React.FC = () => {
+  useIonViewWillEnter(() => {
+    hideSplashScreen();
+  });
+
   const [searchText, setSearchText] = useState('');
 
   const filteredWorkouts = workoutList.filter((workout) => {

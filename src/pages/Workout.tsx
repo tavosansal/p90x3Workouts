@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonContent, IonItem, IonIcon, IonLabel } from '@ionic/react';
+import { IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonContent, IonItem, IonIcon, IonLabel, IonTitle } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import workoutList from '../data/workouts';
 import { timeSharp } from 'ionicons/icons';
@@ -20,6 +20,7 @@ const Workout: React.FC<WorkoutPageProps> = ({match}) => {
           <IonButtons slot="start">
             <IonBackButton></IonBackButton>
           </IonButtons>
+          <IonTitle>{currentWorkout?.title}</IonTitle>
         </IonToolbar>
       </IonHeader>
 
