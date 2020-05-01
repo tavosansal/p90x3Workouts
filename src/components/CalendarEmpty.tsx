@@ -1,35 +1,76 @@
 import React, { useState } from 'react';
 import './CalendarEmpty.css';
-import { IonButton, IonIcon, IonDatetime } from '@ionic/react';
+import { IonButton, IonIcon, IonDatetime, IonModal, IonContent, IonHeader, IonToolbar, IonTitle, IonButtons, IonList, IonLabel, IonItem, IonSelect, IonSelectOption, IonFooter, IonLoading } from '@ionic/react';
 import { calendarSharp } from 'ionicons/icons';
 
 const CalendarEmpty: React.FC = () => {
-  const [isSelectingDate, setIsSelectingDate] = useState(false);
   const [selectedDate, setSelectedDate] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [style, setStyle] = useState('Classic');
+  const [showLoading, setShowLoading] = useState(false);
 
-  function openPicker() {
-    const picker = document.querySelector('.picker');
-    // @ts-ignore
-    picker?.open();
+  function disableContinueButton() {
+    return !selectedDate || !style;
   }
 
-  function dateSelected(e: { detail: { value: any; }; }) {
-    setSelectedDate(e.detail.value!);
+  function dismissModalAndCreateSchedule() {
+    setShowModal(false);
+    setShowLoading(true);
   }
 
   return (
     <div className="container">
       <strong>You don't have a calendar yet.</strong>
-      <p>
-        Pick a starting day to generate your workout calendar.
-      </p>
       <br />
-      <IonButton onClick={openPicker}>
+      <br />
+    
+      <IonButton onClick={() => setShowModal(true)}>
         <IonIcon slot="start" icon={calendarSharp} />
-        Select Start Date
+        Start New Calendar
       </IonButton>
 
-      <IonDatetime className="picker" value={selectedDate} onIonChange={dateSelected} />
+      <IonLoading
+        isOpen={showLoading}
+        onDidDismiss={() => setShowLoading(false)}
+        message={'Creating Schedule...'}
+      />
+
+      <IonModal isOpen={showModal} onDidDismiss={() => setShowModal(false)}>
+        <IonHeader>
+          <IonToolbar>
+            <IonButtons slot="start">
+              <IonButton onClick={() => setShowModal(false)}>Cancel</IonButton>
+            </IonButtons>
+            <IonTitle>New Schedule</IonTitle>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent>
+          <IonList>
+            <IonItem>
+              <IonLabel>Workout Style</IonLabel>
+              <IonSelect value={style} placeholder="Select Style" onIonChange={e => setStyle(e.detail.value)} interface={'action-sheet'}>
+                <IonSelectOption value="Classic">Classic</IonSelectOption>
+                <IonSelectOption value="Deluxe">Deluxe</IonSelectOption>
+              </IonSelect>
+            </IonItem>
+
+            <IonItem>
+              <IonLabel>
+                Start Date
+              </IonLabel>
+              <IonDatetime displayFormat="MMMM DD YYYY" placeholder="Select Date" value={selectedDate} onIonChange={e => setSelectedDate(e.detail.value!)}></IonDatetime>
+            </IonItem>
+          </IonList>
+        </IonContent>
+
+        <IonFooter>
+          <div className="ion-padding-start ion-padding-end ion-padding-bottom">
+            <IonButton expand="block" disabled={disableContinueButton()} onClick={dismissModalAndCreateSchedule}>
+              Continue
+            </IonButton>
+          </div>
+        </IonFooter>
+      </IonModal>
     </div>
   )
 }

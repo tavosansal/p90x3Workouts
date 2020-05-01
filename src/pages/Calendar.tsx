@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonListHeader, IonLabel, IonList, IonItem, IonCheckbox } from '@ionic/react';
+import React, { useState, useRef } from 'react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonListHeader, IonLabel, IonList, IonItem, IonCheckbox, useIonViewDidEnter } from '@ionic/react';
 import workoutList from '../data/workouts';
 import './Calendar.css';
 import CalendarEmpty from '../components/CalendarEmpty';
@@ -49,7 +49,6 @@ function CalendarBody(props: { calendar: object; }) {
 const Calendar: React.FC = () => {
   const allDays = createCalendar();
   const [calendar, setCalendar] = useState(localStorage.getItem('calendar'));
-
   const parsedCalendar = JSON.parse(calendar!);
 
   return (
@@ -68,7 +67,6 @@ const Calendar: React.FC = () => {
         
         <CalendarBody calendar={parsedCalendar}/>
         
-
       </IonContent>
     </IonPage>
   );
