@@ -33,6 +33,7 @@ const CalendarEmpty: React.FC = () => {
         isOpen={showLoading}
         onDidDismiss={() => setShowLoading(false)}
         message={'Creating Schedule...'}
+        duration={5000}
       />
 
       <IonModal isOpen={showModal} onDidDismiss={() => setShowModal(false)}>
