@@ -1,6 +1,23 @@
 import React, { useState } from 'react';
 import './CalendarEmpty.css';
-import { IonButton, IonIcon, IonDatetime, IonModal, IonContent, IonHeader, IonToolbar, IonTitle, IonButtons, IonList, IonLabel, IonItem, IonSelect, IonSelectOption, IonFooter, IonLoading } from '@ionic/react';
+import {
+  IonButton,
+  IonIcon,
+  IonDatetime,
+  IonModal,
+  IonContent,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+  IonList,
+  IonLabel,
+  IonItem,
+  IonSelect,
+  IonSelectOption,
+  IonFooter,
+  IonLoading
+} from '@ionic/react';
 import { calendarSharp } from 'ionicons/icons';
 
 const CalendarEmpty: React.FC = () => {
@@ -13,9 +30,15 @@ const CalendarEmpty: React.FC = () => {
     return !selectedDate || !style;
   }
 
+  function createSchedule(style: string, selectedDate: string) {
+    console.log(style, selectedDate);
+    setShowLoading(false);
+  }
+
   function dismissModalAndCreateSchedule() {
     setShowModal(false);
     setShowLoading(true);
+    createSchedule(style, selectedDate);
   }
 
   return (
