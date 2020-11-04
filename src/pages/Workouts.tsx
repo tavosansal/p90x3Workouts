@@ -28,7 +28,7 @@ const Workouts: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>All Workouts</IonTitle>
+          <IonTitle>All Workouts For Realz</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
