@@ -34,7 +34,7 @@ const Workouts: React.FC = () => {
       <IonContent>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">All Workouts</IonTitle>
+            <IonTitle size="large">All Workouts For Realz</IonTitle>
           </IonToolbar>
         </IonHeader>
         
