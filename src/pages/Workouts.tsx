@@ -28,13 +28,13 @@ const Workouts: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>All Workouts Maybe</IonTitle>
+          <IonTitle>All Workouts</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">All Workouts Maybe</IonTitle>
+            <IonTitle size="large">All Workouts</IonTitle>
           </IonToolbar>
         </IonHeader>
         
