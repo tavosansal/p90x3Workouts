@@ -1,24 +1,24 @@
-import React, { useState, useRef } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonListHeader, IonLabel, IonList, IonItem, IonCheckbox, useIonViewDidEnter } from '@ionic/react';
-import workoutList from '../data/workouts';
+import React, { useState } from 'react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+// import workoutList from '../data/workouts';
 import './Calendar.css';
 import CalendarEmpty from '../components/CalendarEmpty';
 
-function createCalendar() {
-  let dayCounter = 1;
-  const allDays = [];
+// function createCalendar() {
+//   let dayCounter = 1;
+//   const allDays = [];
 
-  for (let index = 1; index < 27; index++) {
-    allDays.push({
-      day: dayCounter,
-      workout: workoutList.find((workout) => workout.id === 'totalSynergistics'),
-    })
-    dayCounter++;
+//   for (let index = 1; index < 27; index++) {
+//     allDays.push({
+//       day: dayCounter,
+//       workout: workoutList.find((workout) => workout.id === 'totalSynergistics'),
+//     })
+//     dayCounter++;
     
-  }
+//   }
 
-  return allDays;
-}
+//   return allDays;
+// }
 
 function CalendarBody(props: { calendar: object; }) {
   if (!props.calendar) {
@@ -47,8 +47,8 @@ function CalendarBody(props: { calendar: object; }) {
 }
 
 const Calendar: React.FC = () => {
-  const allDays = createCalendar();
-  const [calendar, setCalendar] = useState(localStorage.getItem('calendar'));
+  // const allDays = createCalendar();
+  const [calendar] = useState(localStorage.getItem('calendar'));
   const parsedCalendar = JSON.parse(calendar!);
 
   return (
