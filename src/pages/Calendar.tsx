@@ -11,12 +11,12 @@ function CalendarBody(props: { calendar: any; }) {
   }
   return (
     <IonList>
-      {props.calendar.allDays.map((scheduleItem: { day: string; workout: any; }) => (
-        <div key={scheduleItem.day}>
+      {props.calendar.allDays.map((scheduleItem: { date: string; workout: any; }) => (
+        <div key={scheduleItem.date}>
           <IonListHeader>
-            <IonLabel>Day {scheduleItem.day}</IonLabel>
+            <IonLabel>Day {scheduleItem.date}</IonLabel>
           </IonListHeader>
-          <IonItem key={scheduleItem.day}>
+          <IonItem key={scheduleItem.date}>
             <IonLabel>
               {scheduleItem.workout?.title}
             </IonLabel>

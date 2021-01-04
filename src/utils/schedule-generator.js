@@ -116,6 +116,7 @@ function generateSchedule(type, selectedDate) {
   if (type === 'Classic') {
     classicList.forEach(createBlock);
     console.log(newCalendar);
+    localStorage.setItem('calendar', JSON.stringify(newCalendar));
   }
 
 
