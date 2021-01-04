@@ -1,7 +1,9 @@
-import WorkoutList from '../data/workouts';
+import workoutList from '../data/workouts';
 
-const classicList = {
-  block1: {
+const allWorkouts = workoutList;
+
+const classicList = [
+  {
     times: 3,
     workouts: [
       'totalSynergistics',
@@ -13,7 +15,7 @@ const classicList = {
       'restOrDynamix',
     ],
   },
-  block2: {
+  {
     times: 1,
     workouts: [
       'isometrix',
@@ -25,7 +27,7 @@ const classicList = {
       'restOrDynamix',
     ]
   },
-  block3: {
+  {
     times: 3,
     workouts: [
       'eccentricUpper',
@@ -37,7 +39,7 @@ const classicList = {
       'restOrDynamix',
     ],
   },
-  block4: {
+  {
     times: 1,
     workouts: [
       'isometrix',
@@ -49,7 +51,7 @@ const classicList = {
       'restOrDynamix',
     ],
   },
-  block5: {
+  {
     times: 2,
     workouts: [
       'decelerator',
@@ -68,7 +70,7 @@ const classicList = {
       'restOrDynamix',
     ],
   },
-  block6: {
+  {
     times: 1,
     workouts: [
       'isometrix',
@@ -80,9 +82,41 @@ const classicList = {
       'finalFitTest',
     ],
   },
-};
+];
 
 function generateSchedule(type, selectedDate) {
+  const newCalendar = {
+    allDays: [],
+  };
+  let currentDate = new Date(selectedDate);
+
+  const addWorkouts = (workouts) => {
+    workouts.forEach((workoutId) => {
+      const workout = allWorkouts.find((workout) => workout.id === workoutId);
+      newCalendar.allDays.push({
+        date: currentDate,
+        workout,
+      });
+
+      const newDate = new Date(currentDate.getTime());
+      newDate.setDate(currentDate.getDate() + 1);
+
+      currentDate = newDate;
+    });
+  };
+
+  const createBlock = (block) => {
+    const { times, workouts } = block;
+
+    for (let index = 0; index < times; index++) {
+      addWorkouts(workouts);
+    }
+  }
+
+  if (type === 'Classic') {
+    classicList.forEach(createBlock);
+    console.log(newCalendar);
+  }
 
 
 }

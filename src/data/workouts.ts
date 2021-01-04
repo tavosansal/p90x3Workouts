@@ -36,7 +36,7 @@ const workoutList = [
     duration: '30',
   },
   {
-    id: 'x3yoga',
+    id: 'x3Yoga',
     title: 'X3 Yoga',
     description: 'A flow-style practice that improves your musculouskeletal flexibility, balance, stamina, and core strength.',
     duration: '30',
@@ -110,6 +110,15 @@ const workoutList = [
   {
     id: 'dynamix',
     title: 'Dynamix',
+    description: 'Increase your range of motion, flexibility, and stabilization to help maximize the results you get from every routine.',
+    duration: '30',
+    recommendedEquipment: [
+      'Yoga Mat',
+    ],
+  },
+  {
+    id: 'restOrDynamix',
+    title: 'Rest or Dynamix',
     description: 'Increase your range of motion, flexibility, and stabilization to help maximize the results you get from every routine.',
     duration: '30',
     recommendedEquipment: [

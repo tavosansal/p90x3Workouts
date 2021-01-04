@@ -19,6 +19,7 @@ import {
   IonLoading
 } from '@ionic/react';
 import { calendarSharp } from 'ionicons/icons';
+import generateSchedule from '../utils/schedule-generator.js';
 
 const CalendarEmpty: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState('');
@@ -33,6 +34,7 @@ const CalendarEmpty: React.FC = () => {
   function createSchedule(style: string, selectedDate: string) {
     console.log(style, selectedDate);
     setShowLoading(false);
+    generateSchedule(style, selectedDate);
   }
 
   function dismissModalAndCreateSchedule() {

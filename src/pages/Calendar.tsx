@@ -1,48 +1,30 @@
 import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-// import workoutList from '../data/workouts';
+import { IonCheckbox, IonContent, IonHeader, IonItem, IonLabel, IonList, IonListHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './Calendar.css';
 import CalendarEmpty from '../components/CalendarEmpty';
 
-// function createCalendar() {
-//   let dayCounter = 1;
-//   const allDays = [];
-
-//   for (let index = 1; index < 27; index++) {
-//     allDays.push({
-//       day: dayCounter,
-//       workout: workoutList.find((workout) => workout.id === 'totalSynergistics'),
-//     })
-//     dayCounter++;
-    
-//   }
-
-//   return allDays;
-// }
-
-function CalendarBody(props: { calendar: object; }) {
+function CalendarBody(props: { calendar: any; }) {
   if (!props.calendar) {
     return (
       <CalendarEmpty/>
     )
   }
   return (
-    <div></div>
-    // <IonList>
-    //   {props.allDays.map((scheduleItem) => (
-    //     <div key={scheduleItem.day}>
-    //       <IonListHeader>
-    //         <IonLabel>Day {scheduleItem.day}</IonLabel>
-    //       </IonListHeader>
-    //       <IonItem key={scheduleItem.day}>
-    //         <IonLabel>
-    //           {scheduleItem.workout?.title}
-    //         </IonLabel>
-    //         <IonCheckbox slot="end" color="primary" />
-    //       </IonItem>
-    //     </div>
-    //   ))}
-    // </IonList>
+    <IonList>
+      {props.calendar.allDays.map((scheduleItem: { day: string; workout: any; }) => (
+        <div key={scheduleItem.day}>
+          <IonListHeader>
+            <IonLabel>Day {scheduleItem.day}</IonLabel>
+          </IonListHeader>
+          <IonItem key={scheduleItem.day}>
+            <IonLabel>
+              {scheduleItem.workout?.title}
+            </IonLabel>
+            <IonCheckbox slot="end" color="primary" />
+          </IonItem>
+        </div>
+      ))}
+    </IonList>
   )
 }
 
