@@ -89,19 +89,22 @@ function generateSchedule(type, selectedDate) {
     allDays: [],
   };
   let currentDate = new Date(selectedDate);
+  let currentDay = 1;
 
   const addWorkouts = (workouts) => {
     workouts.forEach((workoutId) => {
       const workout = allWorkouts.find((workout) => workout.id === workoutId);
       newCalendar.allDays.push({
-        date: currentDate,
+        date: currentDate.toLocaleDateString(),
         workout,
+        day: currentDay,
       });
 
       const newDate = new Date(currentDate.getTime());
       newDate.setDate(currentDate.getDate() + 1);
 
       currentDate = newDate;
+      currentDay++;
     });
   };
 
@@ -115,7 +118,6 @@ function generateSchedule(type, selectedDate) {
 
   if (type === 'Classic') {
     classicList.forEach(createBlock);
-    console.log(newCalendar);
     localStorage.setItem('calendar', JSON.stringify(newCalendar));
   }
 
